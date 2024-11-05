@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	6.2.2
+%define		kdeplasmaver	6.2.3
 %define		qtver		5.15.2
 %define		kpname		kde-gtk-config
 Summary:	GTK2 and GTK3 Configurator for KDE
 Name:		kp6-%{kpname}
-Version:	6.2.2
+Version:	6.2.3
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	bafa6b080d6e8205cdb3d5583ed51206
-#Patch0:		x32.patch
+# Source0-md5:	db57c0c1d0fcefe472ba9812cf34f239
+#Patch0: x32.patch
 %define		specflags	-I/usr/include/harfbuzz
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
@@ -88,3 +88,4 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/kcm-gtk-module
 %{_datadir}/kcm-gtk-module/preview.ui
 %attr(755,root,root) %{_libdir}/kconf_update_bin/remove_deprecated_gtk4_option
+%{_datadir}/qlogging-categories6/kde-gtk-config.categories
