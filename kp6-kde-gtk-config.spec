@@ -1,17 +1,17 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	6.4.5
+%define		kdeplasmaver	6.5.0
 %define		qtver		5.15.2
 %define		kpname		kde-gtk-config
 Summary:	GTK2 and GTK3 Configurator for KDE
 Name:		kp6-%{kpname}
-Version:	6.4.5
-Release:	2
+Version:	6.5.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	d1c82b88d4625982556a0cc5fe1e4692
+# Source0-md5:	4fcae80382acc57f5585b0e94d5aeeca
 #Patch0: x32.patch
 %define		specflags	-I/usr/include/harfbuzz
 URL:		http://www.kde.org/
@@ -79,14 +79,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_prefix}/libexec/gtk3_preview
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kded/gtkconfig.so
+%{_libdir}/qt6/plugins/kf6/kded/gtkconfig.so
 %attr(755,root,root) %{_libdir}/kconf_update_bin/gtk_theme
+%attr(755,root,root) %{_libdir}/kconf_update_bin/remove_deprecated_gtk4_option_v2
 %{_datadir}/kconf_update/gtkconfig.upd
-%attr(755,root,root) %{_libdir}/gtk-3.0/modules/libcolorreload-gtk-module.so
-%attr(755,root,root) %{_libdir}/gtk-3.0/modules/libwindow-decorations-gtk-module.so
+%{_libdir}/gtk-3.0/modules/libcolorreload-gtk-module.so
+%{_libdir}/gtk-3.0/modules/libwindow-decorations-gtk-module.so
 %attr(755,root,root) %{_datadir}/kconf_update/remove_window_decorations_from_gtk_css.sh
 %{_datadir}/themes/Breeze/window_decorations.css
 %dir %{_datadir}/kcm-gtk-module
 %{_datadir}/kcm-gtk-module/preview.ui
-%attr(755,root,root) %{_libdir}/kconf_update_bin/remove_deprecated_gtk4_option
 %{_datadir}/qlogging-categories6/kde-gtk-config.categories
