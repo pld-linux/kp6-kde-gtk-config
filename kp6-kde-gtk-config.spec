@@ -48,6 +48,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 GTK2 and GTK3 Configurator for KDE.
 
+%description -l pl.UTF-8
+Konfigurator GTK2 i GTK3 dla KDE.
+
 %prep
 %setup -q -n %{kpname}-%{version}
 #%%patch0 -p1
